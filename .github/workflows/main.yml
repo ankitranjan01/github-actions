@@ -18,6 +18,7 @@ jobs:
           ECR_REPOSITORY: github-actions
           IMAGE_TAG: latest
         run: |
+          aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 884211125288.dkr.ecr.ap-southeast-2.amazonaws.com
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
           docker login -u AWS -p $(aws ecr get-login-password --region your-region) $ECR_REGISTRY
           docker push $ECR_REPOSITORY:$IMAGE_TAG
