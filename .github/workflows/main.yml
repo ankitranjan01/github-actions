@@ -32,4 +32,4 @@ jobs:
 
       - name: Update ECS servicedocker tag nginxhtml:latest public.ecr.aws/s8z2n5e0/nginxhtml:latest
         run: |
-          aws ecs update-service --cluster myNginxCluster --service nginx-html-page --force-new-deployment
+          aws ecs update-service --cluster github-actions --service nginx-html-page --force-new-deployment
