@@ -29,7 +29,3 @@ jobs:
           docker build -t nginxhtml .
           docker tag nginxhtml:latest public.ecr.aws/h7k0d3f7/nginxhtml:latest
           docker push public.ecr.aws/h7k0d3f7/nginxhtml:latest
-
-      - name: Update ECS servicedocker tag nginxhtml:latest public.ecr.aws/h7k0d3f7/nginxhtml:latest
-        run: |
-          aws ecs update-service --cluster github-actions --service action-github-page --force-new-deployment
