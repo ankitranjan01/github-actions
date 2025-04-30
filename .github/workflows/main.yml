@@ -22,14 +22,14 @@ jobs:
 
       - name: Login to Amazon ECR
         run: |
-          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s8z2n5e0
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h7k0d3f7
 
       - name: Build and push Docker image
         run: |
           docker build -t nginxhtml .
-          docker tag nginxhtml:latest public.ecr.aws/s8z2n5e0/nginxhtml:latest
-          docker push public.ecr.aws/s8z2n5e0/nginxhtml:latest
+          docker tag nginxhtml:latest public.ecr.aws/h7k0d3f7/nginxhtml:latest
+          docker push public.ecr.aws/h7k0d3f7/nginxhtml:latest
 
-      - name: Update ECS servicedocker tag nginxhtml:latest public.ecr.aws/s8z2n5e0/nginxhtml:latest
+      - name: Update ECS servicedocker tag nginxhtml:latest public.ecr.aws/h7k0d3f7/nginxhtml:latest
         run: |
           aws ecs update-service --cluster github-actions --service action-github-page --force-new-deployment
